@@ -1,0 +1,39 @@
+cat $HOME/.ssh/*.pub
+ssh-keygen -t ed25519
+cat $HOME/.ssh/*.pub
+cd repogit
+git clone git@github.com:Lyzee1/TP1_AySO_Moreno_Ramiro1.git
+cd TP1_AySO_Moreno_Ramiro1
+pwd
+ls -l
+cat /etc/os-release
+man grep
+grep -i home_url /etc/os-release > datos_url.txt
+whoami
+echo "Usuario=$(whoami)" > datos_usuario.txt
+git add .
+git config --global user.email "ramimoreno377@gmail.com"
+git config --global user.name "RamiroMoreno"
+git commit -m "ADD: agregado 1er ejercicio sobre datos_usuarios.txt"
+git status
+git push
+grep "model name" /proc/cpuinfo | head -n1 >> datos_usuario.txt
+git add datos_usuario.txt
+git commit -m "feat: Añadiendo información de CPU"
+git push
+cat <<EOF >> README.md
+Alumno: Ramiro Moreno 
+División: 115 
+Turno: Mañana
+EOF
+
+git add README.md datos_usuario.txt
+git commit -m "ADD: Añadiendo Readme y datos de usuario"
+git push
+mkdir -p $HOME/A/B/C
+echo 'mkdir -p $HOME/A/B/C' > script_dir.sh
+chmod 755 script_dir.sh
+git add .
+git commit -m "ADD: Añadiendo script"
+git push
+history -a
